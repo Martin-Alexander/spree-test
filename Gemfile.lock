@@ -4,12 +4,6 @@ PATH
     spree_packages (0.0.1.alpha)
       spree_core (>= 3.1.0, < 4.0)
 
-PATH
-  remote: ../spree_simple_sales
-  specs:
-    spree_simple_sales (0.0.1.alpha)
-      spree_core (>= 3.1.0, < 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -378,7 +372,6 @@ DEPENDENCIES
   spree_auth_devise (~> 3.2.0.beta)
   spree_gateway (~> 3.2.0.beta)
   spree_packages!
-  spree_simple_sales!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
