@@ -25,7 +25,6 @@ gem 'spree_gateway', '~> 3.2.0.beta'
 
 gem 'rails-ujs'
 
-gem 'spree_simple_sales', path: '../spree_simple_sales'
 gem 'spree_packages', path: '../spree_packages'
 
 gem 'simple_form'
