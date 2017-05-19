@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518063629) do
+ActiveRecord::Schema.define(version: 20170519025418) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -289,6 +289,39 @@ ActiveRecord::Schema.define(version: 20170518063629) do
     t.index ["ship_address_id"], name: "index_spree_orders_on_ship_address_id"
     t.index ["store_id"], name: "index_spree_orders_on_store_id"
     t.index ["user_id", "created_by_id"], name: "index_spree_orders_on_user_id_and_created_by_id"
+  end
+
+  create_table "spree_package_type_taxons", force: :cascade do |t|
+    t.integer  "package_type_id"
+    t.integer  "taxon_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["package_type_id"], name: "index_spree_package_type_taxons_on_package_type_id"
+    t.index ["taxon_id"], name: "index_spree_package_type_taxons_on_taxon_id"
+  end
+
+  create_table "spree_package_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_package_variants", force: :cascade do |t|
+    t.integer  "package_id"
+    t.integer  "variant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_spree_package_variants_on_package_id"
+    t.index ["variant_id"], name: "index_spree_package_variants_on_variant_id"
+  end
+
+  create_table "spree_packages", force: :cascade do |t|
+    t.integer  "package_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["package_type_id"], name: "index_spree_packages_on_package_type_id"
+    t.index ["user_id"], name: "index_spree_packages_on_user_id"
   end
 
   create_table "spree_payment_capture_events", force: :cascade do |t|
